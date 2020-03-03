@@ -1,6 +1,6 @@
-#############################################################################
+################################
 # VARIABLES
-#############################################################################
+################################
 variable "resource_group_name" {
   type = string
 }
@@ -9,11 +9,17 @@ variable "workflow_name" {
   type = string
 }
 
+################################
+# DATA SOURCES
+################################
 
 data "azurerm_resource_group" "resource_group" {
   name                = var.resource_group_name
 }
 
+################################
+# RESOURCES
+################################
 resource "azurerm_logic_app_workflow" "example" {
   name                = var.workflow_name
   location            = azurerm_resource_group.resource_group.location

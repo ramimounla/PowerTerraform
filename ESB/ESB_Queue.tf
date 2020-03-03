@@ -3,9 +3,9 @@ provider "azurerm" {
   features {}
 }
 
-#############################################################################
+################################
 # VARIABLES
-#############################################################################
+################################
 variable "resource_group_name" {
   type = string
 }
@@ -18,12 +18,16 @@ variable "queue_name" {
   type = string
 }
 
-# Data Sources
+################################
+# DATA SOURCES
+################################
 data "azurerm_resource_group" "resource_group" {
   name                = var.resource_group_name
 }
 
-# Resources
+################################
+# RESOURCES
+################################
 resource "azurerm_servicebus_namespace" "servicebus" {
   name                = var.service_bus_namespace
   location            = data.azurerm_resource_group.resource_group.location  
