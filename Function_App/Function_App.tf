@@ -10,7 +10,7 @@ variable "resource_group_name" {
   type = string
 }
 
-variable "keyvault" {
+variable "keyvault_name" {
   type = string
 }
 
@@ -34,7 +34,7 @@ data "azurerm_resource_group" "resource_group" {
 }
 
 data "azurerm_key_vault" "vault" {
-  name                = var.keyvault
+  name                = var.keyvault_name
   resource_group_name = var.resource_group_name
 }
 

@@ -10,7 +10,7 @@ variable "resource_group_name" {
   type = string
 }
 
-variable "key_vault_name" {
+variable "keyvault_name" {
   type = string
 }
 
@@ -26,7 +26,7 @@ data "azurerm_resource_group" "example" {
 }
 
 resource "azurerm_key_vault" "example" {
-  name                        = var.key_vault_name
+  name                        = var.keyvault_name
   location                    = azurerm_resource_group.example.location
   resource_group_name         = azurerm_resource_group.example.name
   enabled_for_disk_encryption = true
