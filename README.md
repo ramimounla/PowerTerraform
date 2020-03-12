@@ -6,6 +6,9 @@ The example cover the creation of an Azure Service Bus, a queue, a function app 
 # Prerequisites
 Download the terraform installer from [here](https://www.terraform.io/downloads.html).
 
+# Examples
+Working examples can be located under the Examples folders.
+
 # Instructions
 Clone the repository on your machine using the command line enter the desired folder and run the following commands
 ```
