@@ -28,8 +28,8 @@ data "azurerm_resource_group" "resource_group" {
 ################################
 resource "azurerm_logic_app_workflow" "example" {
   name                = var.workflow_name
-  location            = azurerm_resource_group.resource_group.location
-  resource_group_name = azurerm_resource_group.resource_group.name
+  location            = data.azurerm_resource_group.resource_group.location
+  resource_group_name = data.azurerm_resource_group.resource_group.name
 
   tags = {
     source = "terraform"
