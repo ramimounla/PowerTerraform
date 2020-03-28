@@ -18,7 +18,7 @@ variable "resource_group_location" {
 ################################
 # RESOURCES
 ################################
-resource "azurestack_resource_group" "test" {
+resource "azurerm_resource_group" "test" {
   name     = var.resource_group_name
   location = var.resource_group_location
 }
