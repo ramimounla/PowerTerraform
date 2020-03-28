@@ -9,8 +9,8 @@ Download the Azure CLI from [here](https://docs.microsoft.com/en-us/cli/azure/in
 
 # Instructions
 1. Clone the repository on your machine.
-2. Update the terraform.tfvars files of the resource you would like to deploy.
-3. Using the command line enter the desired folder and run the following commands
+2. Update the terraform.tfvars files of the resource you would like to deploy with your prefered values.
+3. Using the command line enter the desired folder and run the following commands - the plan command display what will change without making any changes so it could be optional. Given that the files are following the naming conventions, there is no need to specify the file names (e.g. terraform.tfvars).
 ```
 az login
 terraform init
