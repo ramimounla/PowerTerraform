@@ -16,11 +16,6 @@ variable "keyvault_name" {
   type = string
 }
 
-variable "azure_tenant_id" {
-  type = string
-}
-
-
 ################################
 # DATA SOURCES
 ################################
@@ -28,14 +23,17 @@ data "azurerm_resource_group" "example" {
   name                = var.resource_group_name
 }
 
+data "azurerm_client_config" "current" {}
+
+################################
+# RESOURCES
+################################
 resource "azurerm_key_vault" "example" {
   name                        = var.keyvault_name
   location                    = data.azurerm_resource_group.example.location
   resource_group_name         = data.azurerm_resource_group.example.name
   enabled_for_disk_encryption = true
-  tenant_id                   = var.azure_tenant_id
-  # soft_delete_enabled         = true
-  # purge_protection_enabled    = false
+  tenant_id                   = "${data.azurerm_client_config.current.tenant_id}" 
 
   sku_name = "standard"
 }
