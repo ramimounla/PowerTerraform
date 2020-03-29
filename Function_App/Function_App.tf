@@ -1,16 +1,7 @@
 # Configure the Azure Provider
 provider "azurerm" {
   # whilst the `version` attribute is optional, we recommend pinning to a given version of the Provider
-  version = "=2.0.0"
-  tenant_id = var.azure_tenant_id
-  subscription_id = var.azure_subscription_id
-  client_id = var.azure_client_id
-  client_secrete = var.azure_secret
-  features {}
-}
-
-provider "azurerm" {
-  version = "~> 2.0.0"
+  version = "=2.1.0"
   features {}
 }
 
@@ -65,6 +56,7 @@ resource "azurerm_app_service_plan" "example" {
   location            = data.azurerm_resource_group.resource_group.location
   resource_group_name = data.azurerm_resource_group.resource_group.name
 
+  
   sku {
     tier = "Standard"
     size = "S1"
@@ -77,6 +69,10 @@ resource "azurerm_function_app" "example" {
   resource_group_name       = data.azurerm_resource_group.resource_group.name
   app_service_plan_id       = azurerm_app_service_plan.example.id
   storage_connection_string = azurerm_storage_account.example.primary_connection_string
+  
+  identity {
+    type = "SystemAssigned"
+  }
 }
 
 resource "azurerm_key_vault_access_policy" "item" {
